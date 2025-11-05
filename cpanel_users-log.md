@@ -12,6 +12,11 @@ grep "03:22" example.com | awk '{print $1}' | sort | uniq -c | sort -nr | head
 ```
 grep -E "03:2[0-5]" * | awk -F: '{print $1}' | sort | uniq -c | sort -nr | head
 ```
+#### диапазон 03:10 – 03:30
+```
+grep -E "03:1[0-9]|03:2[0-9]|03:30" * | awk -F: '{print $1}' | sort | uniq -c | sort -nr | head
+```
+
 Если логи уже сжаты (.gz)
 ```
 zgrep "03:22" /usr/local/apache/domlogs/*.gz | awk -F: '{print $1}' | sort | uniq -c | sort -nr | head
